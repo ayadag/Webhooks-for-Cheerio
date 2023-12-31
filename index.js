@@ -1,10 +1,8 @@
-const express = require("express");
+const express = require("require");
 
 const axios = require("axios");
 
 const cheerio = require("cheerio");
-
-require('dotenv').config();
 
 const app = express();
 
@@ -26,7 +24,7 @@ let $ = await cheerio.load(res.data);
 
 $(
 
-"#mw-content-text > div.mw-parser-output > div.div-col"
+"#mw-content-text > div.mw-parser-output > div.div-col > div > ul > li > a"
 
 ).each((i, e) => {
 
