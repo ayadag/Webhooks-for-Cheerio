@@ -8,7 +8,7 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
-const url = "https://en.wikipedia.org/wiki/U.S_state";
+const url = "https://www.todaysessay.com/sitemap.xml";
 
 
 let states = [];
@@ -24,7 +24,7 @@ let $ = await cheerio.load(res.data);
 
 $(
 
-"a.href"
+"pre"
 
 ).each((i, e) => {
 
