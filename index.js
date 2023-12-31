@@ -24,7 +24,7 @@ let $ = await cheerio.load(res.data);
 
 $(
 
-"#mw-content-text > div.mw-parser-output > div.div-col > div > ul > li > a"
+"a.href"
 
 ).each((i, e) => {
 
