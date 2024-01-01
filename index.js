@@ -14,7 +14,7 @@ let $ = await cheerio.load(res.data);
 $(
 "a"
 ).each((i, e) => {
-states.push($(e).attr('href').trim());
+states.push($(e).attr('href'));
 });
 } catch (e) {
 console.log(e);
