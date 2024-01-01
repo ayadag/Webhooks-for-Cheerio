@@ -3,7 +3,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const app = express();
 const port = process.env.PORT || 5000;
-const url = "https://www.todaysessay.com/sitemap.xml";
+const url = "https://chatbasebot.com/sitemap.xml";
 
 let states = [];
 
