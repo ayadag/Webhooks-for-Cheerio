@@ -3,7 +3,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const app = express();
 const port = process.env.PORT || 5000;
-const url = "https://en.wikipedia.org/wiki/U.S_state";
+const url = "https://www.todaysessay.com/sitemap.xml";
 
 let states = [];
 
@@ -12,9 +12,9 @@ try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
-"a"
+"loc"
 ).each((i, e) => {
-states.push($(e).attr('href'));
+states.push($(e).text().trim());
 });
 } catch (e) {
 console.log(e);
