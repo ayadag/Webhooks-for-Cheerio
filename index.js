@@ -31,8 +31,8 @@ app.get("/states", (req, res) => {
 
        if(domain){        
         if(domain){
-              fetchData();
-   const fetchData = sync () => {
+    //          fetchData();
+  // const fetchData = sync () => {
 try {
    //let url1=req.query["domain"];
    //let url="https://"+url1;
@@ -47,7 +47,7 @@ states.push($(e).attr('href'));
 } catch (e) {
 console.log(e);
 }
-};
+//};
             res.status(200).send(states)
         }else{
             res.status(403)
