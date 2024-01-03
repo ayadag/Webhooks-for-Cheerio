@@ -3,7 +3,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const app = express();
 const port = process.env.PORT || 5000;
-const url;
+var url = " ";
 
 let states = [];
 
