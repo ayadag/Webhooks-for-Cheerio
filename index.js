@@ -3,12 +3,15 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const app = express();
 const port = process.env.PORT || 5000;
-const url = "https://www.todaysessay.com";
+const url;
 
 let states = [];
 
 const fetchData = async () => {
 try {
+app.get("/states",(req,res)=>{    
+   url=req.query["domain"];
+});
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
