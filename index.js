@@ -28,10 +28,9 @@ fetchData();
 */
 
 app.get("/states", (req, res) => {
-   try {
-app.get("/states",(req,res)=>{    
-   url=req.query["domain"];
-});
+
+   
+try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
