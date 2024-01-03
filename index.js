@@ -50,3 +50,6 @@ res.send(states);
 });
 
 app.listen(port, () => console.log("server running"));
+app.get("/",(req,res)=>{
+    res.status(200).send("hello this is webhook setup");
+});
