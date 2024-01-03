@@ -23,7 +23,7 @@ console.log(e);
 fetchData();
 */
 app.get("/states", (req, res) => {
-  
+  function gfn(){
 try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
@@ -35,7 +35,8 @@ states.push($(e).attr('href'));
 } catch (e) {
 console.log(e);
 }
-  
+  } 
+  await gfn();
 res.send(states);
 });
 
