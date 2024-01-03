@@ -1,15 +1,18 @@
 const express = require("express");
-const body_parser=require("body-parser");
 const axios = require("axios");
 const cheerio = require("cheerio");
-const app = express().use(body_parser.json());;
+const app = express();
 const port = process.env.PORT || 5000;
-var url = " ";
+const url = "https://www.todaysessay.com";
 
 let states = [];
 
-/*const fetchData = async () => {
+/*
+const fetchData = async () => {
 try {
+app.get("/states",(req,res)=>{    
+   url=req.query["domain"];
+});
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
@@ -20,23 +23,15 @@ states.push($(e).attr('href'));
 } catch (e) {
 console.log(e);
 }
-};*/
-
-//fetchData();
+};
+fetchData();
+*/
 
 app.get("/states", (req, res) => {
-   //let url=req.query["domain"];
-   let url1=req.query["domain"];
-   let url="https://"+url1;
-
-       if(domain){        
-        if(domain){
-    //          fetchData();
-  // const fetchData = sync () => {
-try {
-   //let url1=req.query["domain"];
-   //let url="https://"+url1;
-
+   try {
+app.get("/states",(req,res)=>{    
+   url=req.query["domain"];
+});
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
@@ -47,19 +42,8 @@ states.push($(e).attr('href'));
 } catch (e) {
 console.log(e);
 }
-//};
-            res.status(200).send(states)
-        }else{
-            res.status(403)
-        }
-    }
-
    
-//res.send(states);
-//res.end();   
+res.send(states);
 });
 
 app.listen(port, () => console.log("server running"));
-app.get("/",(req,res)=>{
-    res.status(200).send("hello this is webhook setup");
-});
