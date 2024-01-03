@@ -8,7 +8,7 @@ var url = " ";
 
 let states = [];
 
-/*const fetchData = async () => {
+/*const fetchData = sync () => {
 try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
