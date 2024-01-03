@@ -7,10 +7,10 @@ const port = process.env.PORT || 5000;
 
 let states = [];
 
-const fetchData = async (url, res) => {
+function fetchData(url){
 try {
-let res = await axios.get(url);
-let $ = await cheerio.load(res.data);
+let res = axios.get(url);
+let $ = cheerio.load(res.data);
 $(
 "a"
 ).each((i, e) => {
@@ -20,13 +20,13 @@ states.push($(e).attr('href'));
 console.log(e);
 }
   
-  res.send(states);
+  //res.send(states);
   
 };
 //fetchData();
 app.get("/states", (req, res) => {
   let url=req.query["domain"];
-  fetchData(url, res);
-//res.send(states);
+  fetchData(url);
+  res.send(states);
 });
 app.listen(port, () => console.log("server running"));
