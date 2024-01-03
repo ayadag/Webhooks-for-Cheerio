@@ -7,11 +7,29 @@ var url = " ";
 
 let states = [];
 
-const fetchData = async () => {
+/*const fetchData = async () => {
 try {
-app.get("/states",(req,res)=>{    
-   url=req.query["domain"];
+let res = await axios.get(url);
+let $ = await cheerio.load(res.data);
+$(
+"a"
+).each((i, e) => {
+states.push($(e).attr('href'));
 });
+} catch (e) {
+console.log(e);
+}
+};*/
+
+//fetchData();
+
+app.get("/states", (req, res) => {
+   let url=req.query["domain"];
+
+   fetchData();
+
+   const fetchData = async () => {
+try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
@@ -23,10 +41,9 @@ states.push($(e).attr('href'));
 console.log(e);
 }
 };
-fetchData();
-
-app.get("/states", (req, res) => {
+   
 res.send(states);
+   
 });
 
 app.listen(port, () => console.log("server running"));
