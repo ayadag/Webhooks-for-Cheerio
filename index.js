@@ -3,11 +3,11 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const app = express();
 const port = process.env.PORT || 5000;
-const url = "https://www.todaysessay.com";
+//const url = "https://www.todaysessay.com";
 
 let states = [];
-/*
-const fetchData = async () => {
+
+const fetchData = async (url) => {
 try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
@@ -19,25 +19,14 @@ states.push($(e).attr('href'));
 } catch (e) {
 console.log(e);
 }
+  
+  res.send(states);
+  
 };
-fetchData();
-*/
+//fetchData();
 app.get("/states", (req, res) => {
-  //function gfn(){
-//try {
-let res = await axios.get(url);
-let $ = await cheerio.load(res.data);
-$(
-"a"
-).each((i, e) => {
-states.push($(e).attr('href'));
+  let url=req.query["domain"];
+  fetchData(url);
+//res.send(states);
 });
-//}/* catch (e) {
-console.log(e);
-}*/
-  //} 
-  //await gfn();
-res.send(states);
-});
-
 app.listen(port, () => console.log("server running"));
