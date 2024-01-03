@@ -8,7 +8,7 @@ var url = " ";
 
 let states = [];
 
-/*const fetchData = sync () => {
+/*const fetchData = async () => {
 try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
@@ -32,7 +32,7 @@ app.get("/states", (req, res) => {
        if(domain){        
         if(domain){
               fetchData();
-   const fetchData = async () => {
+   const fetchData = sync () => {
 try {
    //let url1=req.query["domain"];
    //let url="https://"+url1;
