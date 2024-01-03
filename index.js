@@ -1,7 +1,8 @@
 const express = require("express");
+const body_parser=require("body-parser");
 const axios = require("axios");
 const cheerio = require("cheerio");
-const app = express();
+const app = express().use(body_parser.json());;
 const port = process.env.PORT || 5000;
 var url = " ";
 
