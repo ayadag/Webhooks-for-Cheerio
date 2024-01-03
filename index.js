@@ -31,7 +31,8 @@ app.get("/states", (req, res) => {
 
    const fetchData = async () => {
 try {
-   let url=req.query["domain"];
+   let url1=req.query["domain"];
+   let url="https://"+url1;
 
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
