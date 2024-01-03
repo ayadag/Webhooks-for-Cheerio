@@ -7,10 +7,10 @@ const port = process.env.PORT || 5000;
 
 let states = [];
 
-function fetchData(url){
+async function fetchData(url){
 try {
-let res = axios.get(url);
-let $ = cheerio.load(res.data);
+let res = await axios.get(url);
+let $ = await cheerio.load(res.data);
 $(
 "a"
 ).each((i, e) => {
