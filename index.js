@@ -24,12 +24,14 @@ console.log(e);
 //fetchData();
 
 app.get("/states", (req, res) => {
-   let url=req.query["domain"];
+   //let url=req.query["domain"];
 
    fetchData();
 
    const fetchData = async () => {
 try {
+   let url=req.query["domain"];
+
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
 $(
