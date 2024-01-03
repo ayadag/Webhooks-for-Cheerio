@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 
 let states = [];
 
-const fetchData = async (url) => {
+const fetchData = async (url, res) => {
 try {
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
@@ -26,7 +26,7 @@ console.log(e);
 //fetchData();
 app.get("/states", (req, res) => {
   let url=req.query["domain"];
-  fetchData(url);
+  fetchData(url, res);
 //res.send(states);
 });
 app.listen(port, () => console.log("server running"));
