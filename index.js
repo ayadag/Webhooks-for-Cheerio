@@ -26,13 +26,16 @@ console.log(e);
 
 app.get("/states", (req, res) => {
    //let url=req.query["domain"];
-
-   fetchData();
-
-   const fetchData = async () => {
-try {
    let url1=req.query["domain"];
    let url="https://"+url1;
+
+       if(domain){        
+        if(domain){
+              fetchData();
+   const fetchData = async () => {
+try {
+   //let url1=req.query["domain"];
+   //let url="https://"+url1;
 
 let res = await axios.get(url);
 let $ = await cheerio.load(res.data);
@@ -45,9 +48,15 @@ states.push($(e).attr('href'));
 console.log(e);
 }
 };
+            res.status(200).send(states)
+        }else{
+            res.status(403)
+        }
+    }
+
    
-res.send(states);
-res.end();   
+//res.send(states);
+//res.end();   
 });
 
 app.listen(port, () => console.log("server running"));
