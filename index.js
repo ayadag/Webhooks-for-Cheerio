@@ -46,7 +46,7 @@ console.log(e);
 };
    
 res.send(states);
-   
+res.end();   
 });
 
 app.listen(port, () => console.log("server running"));
