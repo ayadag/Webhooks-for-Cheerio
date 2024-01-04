@@ -42,7 +42,8 @@ app.get("/states", (req, res) => {
   fetchData(url);
   res.send(states);
   states = [];
-    }else{
+    }
+  else if(type==="sitemap"){
     fetchDataS(url);
     res.send(states);
     states = [];
