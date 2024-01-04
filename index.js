@@ -18,15 +18,31 @@ states.push($(e).attr('href'));
 });
 } catch (e) {
 console.log(e);
-}
-  
-  //res.send(states);
-  
+}  
+};
+
+async function fetchDataS(url){
+try {
+let res = await axios.get(url);
+let $ = await cheerio.load(res.data);
+$(
+"loc"
+).each((i, e) => {
+states.push($(e).text().trim());
+});
+} catch (e) {
+console.log(e);
+}  
 };
 //fetchData();
 app.get("/states", (req, res) => {
   let url=req.query["domain"];
+  let type=req.query["type"];
+  if(type===normal){
   fetchData(url);
+    }else{
+    fetchDataS(url);
+    }
   res.send(states);
   states = [];
 });
