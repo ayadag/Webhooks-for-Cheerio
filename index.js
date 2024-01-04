@@ -28,5 +28,6 @@ app.get("/states", (req, res) => {
   let url=req.query["domain"];
   fetchData(url);
   res.send(states);
+  states = [];
 });
 app.listen(port, () => console.log("server running"));
