@@ -38,7 +38,7 @@ console.log(e);
 app.get("/states", (req, res) => {
   let url=req.query["domain"];
   let type=req.query["type"];
-  if(type===normal){
+  if(type==="normal"){
   fetchData(url);
     }else{
     fetchDataS(url);
