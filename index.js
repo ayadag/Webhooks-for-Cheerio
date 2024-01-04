@@ -39,12 +39,12 @@ app.get("/states", (req, res) => {
   let url=req.query["domain"];
   let type=req.query["type"];
   if(type==="normal"){
-  fetchData(url);
+  await fetchData(url);
   res.send(states);
   states = [];
     }
   else if(type==="sitemap"){
-    fetchDataS(url);
+    await fetchDataS(url);
     res.send(states);
     states = [];
     }
