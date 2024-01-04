@@ -40,10 +40,14 @@ app.get("/states", (req, res) => {
   let type=req.query["type"];
   if(type==="normal"){
   fetchData(url);
-    }else{
-    fetchDataS(url);
-    }
   res.send(states);
   states = [];
+    }else{
+    fetchDataS(url);
+    res.send(states);
+    states = [];
+    }
+  /*res.send(states);
+  states = [];*/
 });
 app.listen(port, () => console.log("server running"));
